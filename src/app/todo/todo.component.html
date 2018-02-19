@@ -1,0 +1,7 @@
+<h3>Todos</h3>
+<div *ngIf="(todo$ | async).err">{{(todo$ | async).err}}</div>
+
+<ul *ngIf="!(todo$ | async).err">
+  <span *ngIf="(todo$ | async).loading">Loading todos...</span>
+  <li *ngFor="let item of (todo$ | async).todos">{{item.title}}</li>
+</ul>
